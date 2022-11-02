@@ -44,7 +44,7 @@ function showPosition(position) {
 
 async function fetchBreweriesByDist () {
   
-  removeElementsByClass()
+  // removeElementsByClass()
 
   let element = document.querySelector('.breweryList')
 
