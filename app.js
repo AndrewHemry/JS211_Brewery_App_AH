@@ -44,8 +44,7 @@ function showPosition(position) {
 
 async function fetchBreweriesByDist () {
   
-  let removeElement = document.getElementById('liTag')
-  removeElement.remove()
+  removeElementsByClass()
 
   let element = document.querySelector('.breweryList')
 
@@ -64,35 +63,34 @@ async function fetchBreweriesByDist () {
     .then((response) => response.json())
     .then((data) => {
 
-      // for(let i = 0; i < data.length; i++) {
-      //   console.log(data[i])
-      //   let liTag = document.createElement('li')
-      //   liTag.innerText = data[i].name
-      //   element.appendChild(liTag);
-      // }
-
       for(let i = 0; i < data.length; i++) {
         console.log(data[i])
 
         let liTag = document.createElement('li')
-        liTag.id = "liTag"
+        liTag.className = "liTag"
         liTag.innerText = data[i].name
         element.appendChild(liTag);
 
         let pTagStreet = document.createElement('p')
-        pTagStreet.id = "liTag"
+        pTagStreet.className = "liTag"
         pTagStreet.innerHTML = data[i].street + ", "
         liTag.appendChild(pTagStreet)
 
         let ptagZip = document.createElement('p')
-        ptagZip.id = "liTag"
+        ptagZip.className = "liTag"
         ptagZip.innerHTML = data[i].postal_code
         liTag.appendChild(ptagZip)
       }
-
-
       console.log(data)
     })
 
 
 }
+
+function removeElementsByClass(className){
+  const elements = document.getElementsByClassName("liTag");
+  while(elements.length > 0){
+      elements[0].parentNode.removeChild(elements[0]);
+  }
+}
+
