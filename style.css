@@ -1,0 +1,208 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ========= BIG SCREEN STYLES ================== */
+  header {
+    width: 100%;
+    min-height: 60px;
+    background-color: rgb(70, 88, 72);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav {
+    width: 90%;
+    max-width: 1000px;
+    height: 7vh;
+    min-height: 60px;
+    padding-top: 8px;
+    background-color: inherit;
+    color: rgba(255, 255, 255);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+  }
+  
+  nav .logo {
+    font-size: 38px;
+    letter-spacing: 5px;
+  }
+  
+  nav a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .navBtn {
+    display: none;
+    cursor: pointer;
+  }
+  
+  /* 3divs for 3line button */
+  .navBtn div {
+    width: 30px;
+    height: 2px;
+    margin: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    transition: all 0.5s ease-in;
+  }
+  
+  /* ============ SMALL SCREEN STYLES ============= */
+  @media screen and (max-width: 768px) {
+  
+    nav {
+      padding: 0;
+      align-items: center;
+    }
+  
+    .navList {
+      /* stick the ul (navList) to a window just below navbar  */
+      position: absolute;
+      right: 0px;
+      height: 93vh;
+      top: clamp(60px, 7vh, 7vh);
+      /* li from row to column */
+      flex-direction: column;
+      gap: 5vh;
+      align-items: center;
+      /* make it a bit pretty :) */
+      padding: 5vh 15vw;
+      background-color: rgb(70, 88, 72, 0.8);
+      font-size: 26px;
+      letter-spacing: 1px;
+      /* blur the background */
+      backdrop-filter: blur(5px);
+      /* will move container off the screen temporarly :)*/
+      transform: translate(100%);
+      transition: transform 0.5s ease-out;
+    }
+  
+    .navLi {
+      opacity: 0;
+      /* transform: translate(250px, 0); */
+      /* transition: all 0.4s ease-in 0.1s; */
+    }
+  
+    /* showing navBtn button */
+    .navBtn {
+      display: block;
+    }
+  }
+  
+  /* ========== NAVLIST ACTIVATION CLASS ================= */
+  /* used by js */
+  /* toggle navList 'visability' :) */
+  .navActive {
+    transform: translate(0%);
+  }
+  
+  /* ========== LI ELEMENTS JAZZED UP TRANSFORMATION ===========*/
+  /* used by js */
+  /* .fadeIn {
+    opacity: 1;
+    transform: translate(0, 0);
+  } */
+  
+  /* adding keyframe */
+  /* used by js */
+  @keyframes SlideIn {
+    from {
+      opacity: 0;
+      transform: translate(250px, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  
+  /* ========= TOGLE CLASSES TO MAKE 3LINE BUTTON ONTO X =========== */
+  /* used by js */
+  .navBtnToggle .line1 {
+    transform: rotate(-45deg) translate(-4px, 6px);
+  }
+  
+  .navBtnToggle .line2 {
+    transform: scale(0) translate(10px, 0);
+  }
+  
+  .navBtnToggle .line3 {
+    transform: rotate(45deg) translate(-4px, -6px);
+  }
+
+  /* BEER IMAGE */
+  section:nth-of-type(1) {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  }
+
+  section:nth-of-type(1) img{
+    height: 250px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  }
+
+  /* BREWERY TEXT */
+  section:nth-of-type(2) ol {
+    padding: 24px;
+    height: 350px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    position: relative;
+    text-align: center;
+}
+
+section:nth-of-type(2) ol li {
+    margin: 10px;
+    height: 25px;
+    align-self: center;
+    text-align: center;
+}
+
+section:nth-of-type(2) ol li p {
+    margin: 5px;
+    font-size: 10px;
+}
+
+/* section:nth-of-type(1) ul{
+    margin: 10px;
+    height: auto;
+    list-style-type: none;
+    padding-left: 0px;
+    opacity: 0.75;
+}
+
+section:nth-of-type(1) ul:hover {
+    opacity: 2;
+  }
+
+section:nth-of-type(1) ul li a img {
+    width: 221px;
+    height: 200px;
+    height: auto;
+    border: 1.5px solid #1a1a1a;
+}
+
+section:nth-of-type(1) ul li a p{
+    padding-top: 15px;
+} */
