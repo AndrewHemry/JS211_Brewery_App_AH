@@ -44,7 +44,12 @@ function showPosition(position) {
 
 async function fetchBreweriesByDist () {
   
+  let removeElement = document.getElementById('liTag')
+  removeElement.remove()
+
   let element = document.querySelector('.breweryList')
+
+
 
   await getLocation()
 
@@ -70,14 +75,17 @@ async function fetchBreweriesByDist () {
         console.log(data[i])
 
         let liTag = document.createElement('li')
+        liTag.id = "liTag"
         liTag.innerText = data[i].name
         element.appendChild(liTag);
 
         let pTagStreet = document.createElement('p')
+        pTagStreet.id = "liTag"
         pTagStreet.innerHTML = data[i].street + ", "
         liTag.appendChild(pTagStreet)
 
         let ptagZip = document.createElement('p')
+        ptagZip.id = "liTag"
         ptagZip.innerHTML = data[i].postal_code
         liTag.appendChild(ptagZip)
       }
